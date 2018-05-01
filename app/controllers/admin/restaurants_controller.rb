@@ -2,6 +2,8 @@ class Admin::RestaurantsController < ApplicationController
   before_action :authenticate_user!
   before_action :authenticate_admin
 
+  before_action :set_restaurant, only: [:show, :edit, :update]
+
   def index
     @restaurants = Restaurant.all
   end
@@ -21,8 +23,14 @@ class Admin::RestaurantsController < ApplicationController
     end
   end
 
-  def show
-    @restaurant = Restaurant.find(params[:id])
+  def update
+    if @restaurant.update(restaurant_params)
+      flash[:notice] = "You've updated this pin info."
+      redirect_to admin_restaurant_path(@restaurant)
+    else
+      flash.now[:alert] = "Failed to update."
+      render :edit
+    end
   end
 
 
@@ -31,6 +39,10 @@ class Admin::RestaurantsController < ApplicationController
 
   def restaurant_params
     params.require(:restaurant).permit(:name, :opening_hour, :tel, :address, :description)
+  end
+
+  def set_restaurant
+    @restaurant = Restaurant.find(params[:id])
   end
 
 
