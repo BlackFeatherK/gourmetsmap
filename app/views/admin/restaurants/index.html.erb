@@ -1,1 +1,11 @@
-<h1>Back Portal to the Control Room</h1>
+<h1>Control Room of the Map</h1>
+<ul>
+  <% @restaurants.each do |restaurant| %>
+    <li><%= restaurant.name %></li>
+    <li><%= link_to 'Show', admin_restaurant_path(restaurant) %></li>
+    <li><%= link_to 'Edit', edit_admin_restaurant_path(restaurant) %></li>
+    <li><%= link_to 'Delete', admin_restaurant_path(restaurant), method: :delete, data: {confirm: "Are you sure?"} %></li>
+  <% end %>
+</ul>
+
+<%= link_to 'New Restaurant', new_admin_restaurant_path %>
