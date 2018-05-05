@@ -1,6 +1,7 @@
 .navbar {
   background-color: #bb5500;
   padding: 10px 0;
+  margin-bottom: 0;
 }
 
 .navbar-default .navbar-text {
@@ -15,3 +16,8 @@
   color: #fff;
   font-size: 25px;
 }
+
+.alert {
+  text-align: center;
+}
+
