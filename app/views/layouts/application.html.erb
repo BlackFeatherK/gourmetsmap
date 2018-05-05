@@ -44,12 +44,12 @@
               <li><p class= "navbar-text"><i class="fa fa-user-circle fa-lg"></i> Hi, <%=  current_user.email %></p></li>
               <li>
                 <%= link_to destroy_user_session_path, title: "Sign out", method: :delete do %>
-                  <i class="fa fa-sign-out-alt fa-lg"></i>
+                <%= icon('fa', 'sign-out-alt', class: 'fa-lg') %>
                 <% end %>
               </li>
               <li>
                 <%= link_to edit_user_registration_path, title: "Change Password" do %>
-                <i class="fas fa-cog fa-lg"></i>
+                <%= icon('fas', 'cog', class: 'fa-lg') %>
                 <% end %>
               </li>
             <% else %>
