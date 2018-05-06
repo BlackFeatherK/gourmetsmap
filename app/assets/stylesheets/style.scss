@@ -21,3 +21,29 @@
   text-align: center;
 }
 
+.background-index {
+  margin: 0;
+  padding: 0;
+  background: url(console-background.jpg) no-repeat;
+  background-position: center;
+  background-size: cover;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+.overlay {
+  background: rgba(255,255,255,0.6);
+  width: 70%;
+  height: 100%;
+}
+
+.table a {
+  color: #000;
+}
+
+
+
+
+

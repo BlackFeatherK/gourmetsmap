@@ -1,17 +1,50 @@
-<h1>Control Room of the Map</h1>
+<div class="background-index">
+  <div class="container overlay">
+    <h2>Gourmet Log</h2>
 
-<%= link_to 'New Restaurant', new_admin_restaurant_path %>
-<hr>
-<ul>
-  <% @restaurants.each do |restaurant| %>
-    <li>
-      <%= restaurant.name %>
-      <%= link_to 'Show', admin_restaurant_path(restaurant) %>
-      <%= link_to 'Edit', edit_admin_restaurant_path(restaurant) %>
-      <%= link_to 'Delete', admin_restaurant_path(restaurant), method: :delete, data: {confirm: "Are you sure?"} %>
-    </li>
-  <% end %>  
-</ul>
+    <div class="row">
+      <div class="col-md-12">
+        <div>
+          <%= link_to 'New Restaurant', new_admin_restaurant_path, class: "btn btn-primary" %> 
+        </div>
+        
+        <hr>
+        <div class="col-md-8 col-md-offset-2">
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Restaurants</th>
+                <th>Options</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @restaurants.each do |restaurant| %>
+                <tr>
+                  <td scope="row"><%= restaurant.id %></td>
+                  <td>
+                  <%= link_to admin_restaurant_path(restaurant) do %>
+                    <%= restaurant.name %>
+                  <% end %>
+                  </td>
+                  <td>
+                    <%= link_to 'Edit', edit_admin_restaurant_path(restaurant), class: "btn btn-warning btn-xs" %>
+                    <%= link_to 'Delete', admin_restaurant_path(restaurant), class: "btn btn-danger btn-xs", method: :delete, data: {confirm: "Are you sure?"} %></td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
 
-<%= paginate @restaurants %>
+        <div class="text-center">
+          <%= paginate @restaurants %>
+        </div>  
+
+      </div> 
+    </div>
+  </div>
+</div>
+
+
+
 
