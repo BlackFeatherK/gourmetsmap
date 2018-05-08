@@ -6,7 +6,7 @@
         <nav aria-label="...">
           <ul class="pager">
             <li><a href="#">Previous</a></li>
-            <li><%= link_to '✪Index', admin_restaurants_path %></li>
+            <li><%= link_to '✪ Index', admin_restaurants_path %></li>
             <li><a href="#">Next</a></li>
           </ul>
         </nav>
@@ -15,6 +15,10 @@
         <div class="col-md-offset-1 overlay-b">
           <div class="show-block text-center">
             <h2 class="word-wt"><%= @restaurant.name %></h2>
+            <div>
+              <%= link_to 'Edit', edit_admin_restaurant_path(@restaurant), class: "btn btn-warning btn-xs" %>
+                    <%= link_to 'Delete', admin_restaurant_path(@restaurant), class: "btn btn-danger btn-xs", method: :delete, data: {confirm: "Are you sure?"} %>
+            </div>
             <p class="word-wt">--------------------------------------</br>
             Opening Hour: <%= @restaurant.opening_hour %><br>
             Tel: <%= @restaurant.tel%><br>
@@ -34,7 +38,8 @@
               <li class="previous disabled"><a href="#"><span aria-hidden="true">&larr;</span> Older</a></li>
               <li class="next"><a href="#">Newer <span aria-hidden="true">&rarr;</span></a></li>
             </ul>
-          </nav>
+        </nav>
+        <br><br>
 
       </div>
       
