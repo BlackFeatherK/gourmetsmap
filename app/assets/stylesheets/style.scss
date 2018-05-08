@@ -27,7 +27,8 @@
   background: url(console-background.jpg) no-repeat;
   background-position: center;
   background-size: cover;
-  position: absolute;
+  background-attachment: fixed;
+  background-position: left top;
   width: 100%;
   height: 100%;
   z-index: -1;
@@ -39,11 +40,34 @@
   height: 100%;
 }
 
+.overlay-b {
+  background: rgba(0,0,0,0.6);
+  width: 85%;
+  height: 100%;
+}
+
 .table a {
   color: #000;
 }
 
+.pager {
+  margin: 0;
+  text-align: left;
+}
 
+.word-wt {
+  color: #fff;
+}
+
+.show-block {
+  padding: 10px 0;
+}
+
+.show-block-des {
+  padding: 10px 90px;
+  line-height: 24px;
+  text-align: justify;
+}
 
 
 
