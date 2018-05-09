@@ -1,12 +1,23 @@
 <div class="background-index">
-  <div class="container">
+  <div class="container index-margincg">
     <h2>Category List</h2>
     <%= link_to admin_restaurants_path, class: "btn btn-default" do %>
       <span class="glyphicon glyphicon-arrow-left"></span> Gourmet Log
     <% end %>
-    <div class="row index-margincg">
+    <div class="row">
       <div class="col-md-12">   
         <hr>
+
+        <div class="form-inline text-center" >
+          <%= form_for [:admin, @category] do |f| %>
+            <div class="form-group">
+              <%= f.text_field :name, placeholder: "Category Name",  class: "form-control" %>
+            </div>
+            <%= f.submit class: "btn btn-primary" %>
+          <% end %>
+        </div>
+        <br>
+
         <div class="col-md-8 col-md-offset-2 overlay">
           <table class="table table-hover">
             <thead>
@@ -19,7 +30,7 @@
               <% @categories.each do |category| %>
               <tr>
                 <th scope="row"><%= category.id %></th>
-                <td><%= category.name %></td>
+                <td><span class="label label-default"><%= category.name %></span></td>
               </tr>
               <% end %>
             </tbody>
