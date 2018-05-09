@@ -13,7 +13,8 @@
             <thead>
               <tr>
                 <th>#</th>
-                <th>Restaurants</th>
+                <th>Category</th>
+                <th>Restaurant</th>
                 <th>Options</th>
               </tr>
             </thead>
@@ -21,9 +22,10 @@
               <% @restaurants.each do |restaurant| %>
                 <tr>
                   <td scope="row"><%= restaurant.id %></td>
-                  <td>
+                  <td><span class="label label-default"><%= restaurant.category.name %></span></td>
+                  <td>☞ 
                   <%= link_to admin_restaurant_path(restaurant) do %>
-                    <%= restaurant.name %>
+                    <strong><%= restaurant.name %></strong>
                   <% end %>
                   </td>
                   <td>
