@@ -14,7 +14,10 @@
 
         <div class="col-md-offset-1 overlay-b">
           <div class="show-block text-center">
-            <h2 class="word-wt"><%= @restaurant.name %></h2>
+            <div class="show-name">
+              <h2 class="word-wt"><%= @restaurant.name %></h2>
+              <p class="label label-default"><%= @restaurant.category.name %></p>
+            </div>
             <div>
               <%= link_to 'Edit', edit_admin_restaurant_path(@restaurant), class: "btn btn-warning btn-xs" %>
                     <%= link_to 'Delete', admin_restaurant_path(@restaurant), class: "btn btn-danger btn-xs", method: :delete, data: {confirm: "Are you sure?"} %>
