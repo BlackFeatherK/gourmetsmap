@@ -83,9 +83,17 @@
   padding: 20px 20px;
 }
 
+/********* adjust the background length ***********/
+
+.index-margincg {
+  margin-bottom: 310px;
+}
+
 .index-margin {
   margin-bottom: 120px;
 }
+
+
 
 .show-name {
   height: 80px;
@@ -99,4 +107,19 @@
   margin-bottom: 20px;
 }
 
+/********** color of pagination **************/
+
+.pagination > li.active > a {
+  background-color: #990036;
+  border-color: #990036;
+  color: white;
+}
+
+.pagination > li > a {
+  color: #990036;
+}
+
+.pagination > li.active > a:hover {
+  background-color: #800080;
+}
 

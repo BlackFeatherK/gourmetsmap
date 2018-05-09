@@ -1,0 +1,32 @@
+<div class="background-index">
+  <div class="container">
+    <h2>Category List</h2>
+    <%= link_to admin_restaurants_path, class: "btn btn-default" do %>
+      <span class="glyphicon glyphicon-arrow-left"></span> Gourmet Log
+    <% end %>
+    <div class="row index-margincg">
+      <div class="col-md-12">   
+        <hr>
+        <div class="col-md-8 col-md-offset-2 overlay">
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Category</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @categories.each do |category| %>
+              <tr>
+                <th scope="row"><%= category.id %></th>
+                <td><%= category.name %></td>
+              </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div> 
+
+      </div> 
+    </div>
+  </div>
+</div>
