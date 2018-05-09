@@ -8,6 +8,7 @@ namespace :dev do
         tel: FFaker::PhoneNumber.short_phone_number,
         address: FFaker::Address.street_address,
         description: FFaker::Lorem.paragraph,
+        category: Category.all.sample,
         image: File.open(Rails.root.join("public/seed-rest-img/0#{rand(1..9)}.jpg"))
       )
     end
