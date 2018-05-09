@@ -33,6 +33,7 @@
               <tr>
                 <th>#</th>
                 <th>Category</th>
+                <th>Options</th>
               </tr>
             </thead>
             <tbody>
@@ -40,6 +41,7 @@
               <tr>
                 <th scope="row"><%= category.id %></th>
                 <td><span class="label label-default"><%= category.name %></span></td>
+                <td><%= link_to 'Edit', admin_categories_path(id: category.id), class: "btn btn-warning btn-xs" %></td>
               </tr>
               <% end %>
             </tbody>
