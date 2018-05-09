@@ -14,7 +14,6 @@ class Admin::CategoriesController < ApplicationController
       redirect_to admin_categories_path
     else
       @categories = Category.all
-      flash[:alert] = "You can't create without a name!"
       render :index
     end   
   end

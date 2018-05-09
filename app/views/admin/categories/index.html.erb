@@ -8,15 +8,24 @@
       <div class="col-md-12">   
         <hr>
 
-        <div class="form-inline text-center" >
-          <%= form_for [:admin, @category] do |f| %>
-            <div class="form-group">
-              <%= f.text_field :name, placeholder: "Category Name",  class: "form-control" %>
-            </div>
-            <%= f.submit class: "btn btn-primary" %>
-          <% end %>
-        </div>
-        <br>
+        
+          <div class="form-inline text-center">
+            <%= form_for [:admin, @category] do |f| %>
+              <div class="form-group">
+                <%= f.text_field :name, placeholder: "Category Name",  class: "form-control" %>
+              </div>
+              <%= f.submit class: "btn btn-primary" %>
+            <% end %>
+          </div>
+          
+          <div class="cg-alert-o">
+            <% if @category.errors.any? %>
+              <div class="cg-alert text-center">
+                <b><%= @category.errors.full_messages.to_sentence %></b>
+              </div>
+            <% end %>
+          </div>
+          
 
         <div class="col-md-8 col-md-offset-2 overlay">
           <table class="table table-hover">
