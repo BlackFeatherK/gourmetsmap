@@ -22,18 +22,29 @@
   margin-bottom: 0px;
 }
 
-.background-index {
-  margin: 0;
-  padding: 0;
-  background: image-url('console-background.jpg') no-repeat;
-  background-position: center;
-  background-size: cover;
-  background-attachment: fixed;
-  background-position: absolute;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
+
+/********* Full background image setting ********/
+
+#bg {
+  position: fixed;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  z-index: -999;
 }
+
+#bg img {
+  position: absolute;
+  top: 100px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  min-width: 50%;
+  min-height: 50%;
+}
+
 
 .overlay {
   background: rgba(255,255,255,0.6);
@@ -83,17 +94,7 @@
   padding: 20px 20px;
 }
 
-/********* adjust the background length ***********/
-
-.index-margincg {
-  margin-bottom: 310px;
-}
-
-.index-margin {
-  margin-bottom: 120px;
-}
-
-
+/****** show頁面 標籤位置 *******/
 
 .show-name {
   height: 80px;

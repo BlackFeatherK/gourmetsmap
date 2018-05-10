@@ -1,57 +1,56 @@
-<div class="background-index">
-  <div class="container index-margincg">
-    <h2>Category List</h2>
-    <%= link_to admin_restaurants_path, class: "btn btn-default" do %>
-      <span class="glyphicon glyphicon-arrow-left"></span> Gourmet Log
-    <% end %>
-    <div class="row">
-      <div class="col-md-12">   
-        <hr>
 
+<div class="container">
+  <h2>Category List</h2>
+  <%= link_to admin_restaurants_path, class: "btn btn-default" do %>
+    <span class="glyphicon glyphicon-arrow-left"></span> Gourmet Log
+  <% end %>
+  <div class="row">
+    <div class="col-md-12">   
+      <hr>
+
+      
+        <div class="form-inline text-center">
+          <%= form_for [:admin, @category] do |f| %>
+            <div class="form-group">
+              <%= f.text_field :name, placeholder: "Category Name",  class: "form-control" %>
+            </div>
+            <%= f.submit class: "btn btn-primary" %>
+          <% end %>
+        </div>
         
-          <div class="form-inline text-center">
-            <%= form_for [:admin, @category] do |f| %>
-              <div class="form-group">
-                <%= f.text_field :name, placeholder: "Category Name",  class: "form-control" %>
-              </div>
-              <%= f.submit class: "btn btn-primary" %>
-            <% end %>
-          </div>
-          
-          <div class="cg-alert-o">
-            <% if @category.errors.any? %>
-              <div class="cg-alert text-center">
-                <b><%= @category.errors.full_messages.to_sentence %></b>
-              </div>
-            <% end %>
-          </div>
-          
+        <div class="cg-alert-o">
+          <% if @category.errors.any? %>
+            <div class="cg-alert text-center">
+              <b><%= @category.errors.full_messages.to_sentence %></b>
+            </div>
+          <% end %>
+        </div>
+        
 
-        <div class="col-md-8 col-md-offset-2 overlay">
-          <table class="table table-hover">
-            <thead>
-              <tr>
-                <th>#</th>
-                <th>Category</th>
-                <th>Options</th>
-              </tr>
-            </thead>
-            <tbody>
-              <% @categories.each do |category| %>
-              <tr>
-                <th scope="row"><%= category.id %></th>
-                <td><span class="label label-default"><%= category.name %></span></td>
-                <td>
-                  <%= link_to 'Edit', admin_categories_path(id: category.id), class: "btn btn-warning btn-xs" %>
-                  <%= link_to 'Delete', admin_category_path(category), class: "btn btn-danger btn-xs", method: :delete, data: {confirm: "Are you sure?"} %>                  
-                </td>
-              </tr>
-              <% end %>
-            </tbody>
-          </table>
-        </div> 
-
+      <div class="col-md-8 col-md-offset-2 overlay">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Category</th>
+              <th>Options</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @categories.each do |category| %>
+            <tr>
+              <th scope="row"><%= category.id %></th>
+              <td><span class="label label-default"><%= category.name %></span></td>
+              <td>
+                <%= link_to 'Edit', admin_categories_path(id: category.id), class: "btn btn-warning btn-xs" %>
+                <%= link_to 'Delete', admin_category_path(category), class: "btn btn-danger btn-xs", method: :delete, data: {confirm: "Are you sure?"} %>                  
+              </td>
+            </tr>
+            <% end %>
+          </tbody>
+        </table>
       </div> 
-    </div>
+
+    </div> 
   </div>
 </div>

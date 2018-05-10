@@ -1,52 +1,51 @@
-<div class="background-index">
-  <div class="container">
-    <h2>Gourmet Log</h2>
-    <%= link_to admin_categories_path, class: "btn btn-default" do %>
-      <span class="glyphicon glyphicon-arrow-right"></span> Category List
-    <% end %>
-    <div class="row">
-      <div class="col-md-12">   
-        <hr>
-        <div class="text-center">
-          <%= link_to 'New Restaurant', new_admin_restaurant_path, class: "btn btn-primary" %>
-        </div><br>
-        <div class="col-md-8 col-md-offset-2 overlay">
-          <table class="table table-hover">
-            <thead>
+<div class="container">
+  <h2>Gourmet Log</h2>
+  <%= link_to admin_categories_path, class: "btn btn-default" do %>
+    <span class="glyphicon glyphicon-arrow-right"></span> Category List
+  <% end %>
+  <div class="row">
+    <div class="col-md-12">   
+      <hr>
+      <div class="text-center">
+        <%= link_to 'New Restaurant', new_admin_restaurant_path, class: "btn btn-primary" %>
+      </div><br>
+      <div class="col-md-8 col-md-offset-2 overlay">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Category</th>
+              <th>Restaurant</th>
+              <th>Options</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @restaurants.each do |restaurant| %>
               <tr>
-                <th>#</th>
-                <th>Category</th>
-                <th>Restaurant</th>
-                <th>Options</th>
+                <td scope="row"><%= restaurant.id %></td>
+                <td><span class="label label-default"><%= restaurant.category.name %></span></td>
+                <td>☞ 
+                <%= link_to admin_restaurant_path(restaurant) do %>
+                  <strong><%= restaurant.name %></strong>
+                <% end %>
+                </td>
+                <td>
+                  <%= link_to 'Edit', edit_admin_restaurant_path(restaurant), class: "btn btn-warning btn-xs" %>
+                  <%= link_to 'Delete', admin_restaurant_path(restaurant), class: "btn btn-danger btn-xs", method: :delete, data: {confirm: "Are you sure?"} %></td>
               </tr>
-            </thead>
-            <tbody>
-              <% @restaurants.each do |restaurant| %>
-                <tr>
-                  <td scope="row"><%= restaurant.id %></td>
-                  <td><span class="label label-default"><%= restaurant.category.name %></span></td>
-                  <td>☞ 
-                  <%= link_to admin_restaurant_path(restaurant) do %>
-                    <strong><%= restaurant.name %></strong>
-                  <% end %>
-                  </td>
-                  <td>
-                    <%= link_to 'Edit', edit_admin_restaurant_path(restaurant), class: "btn btn-warning btn-xs" %>
-                    <%= link_to 'Delete', admin_restaurant_path(restaurant), class: "btn btn-danger btn-xs", method: :delete, data: {confirm: "Are you sure?"} %></td>
-                </tr>
-              <% end %>
-            </tbody>
-          </table>
-        </div>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
 
-        <div class="text-center index-margin">
-          <%= paginate @restaurants %>
-        </div>  
+      <div class="text-center">
+        <%= paginate @restaurants %>
+      </div>  
 
-      </div> 
-    </div>
+    </div> 
   </div>
 </div>
+
 
 
 

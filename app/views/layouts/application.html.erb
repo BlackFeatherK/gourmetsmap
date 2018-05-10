@@ -70,8 +70,8 @@
 
           </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
-      </nav>
 
+      </nav>
 
       <% if flash[:notice] %>
 
@@ -94,7 +94,11 @@
         </div>
 
       <% end %>
-
+    
+    <div id="bg">
+      <%= image_tag "console-background.jpg" %>
+    </div>
     <%= yield %>
+    
   </body>
 </html>
