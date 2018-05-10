@@ -1,7 +1,15 @@
 .navbar {
   background-color: #bb5500;
+  position:fixed;
   padding: 10px 0;
-  margin-bottom: 0;
+  width: 100%;
+  left: 0;
+  right: 0;
+  z-index: 100;
+}
+
+.container {
+  padding-top: 80px;
 }
 
 .navbar-default .navbar-text {
@@ -36,7 +44,7 @@
 
 #bg img {
   position: absolute;
-  top: 130px;
+  top: 0;
   left: 0;
   right: 0;
   bottom: 0;
