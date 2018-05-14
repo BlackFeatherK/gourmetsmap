@@ -1,0 +1,19 @@
+<div class="overlay-a">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+        <ul class="nav nav-pills nav-pills-center">
+          <li role="presentation""><%= link_to "All Restaurants", root_path %></li>
+          <% @categories.each do |category| %>
+            <li role="presentation" class="<%= "active" if category==@category %>"><%= link_to category.name, category_path(category) %></li>
+          <% end %>
+        </ul>
+        <hr>
+
+         <%= render partial: "shared/restaurant_list" %>
+         
+      </div>
+    </div>
+  </div>
+</div>
+
