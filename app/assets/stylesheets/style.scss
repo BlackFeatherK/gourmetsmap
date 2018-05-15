@@ -113,7 +113,7 @@
   padding: 20px 20px;
 }
 
-/****** show頁面 標籤位置 *******/
+/**************** show頁面 **************/
 
 .show-name {
   height: 80px;
@@ -126,6 +126,30 @@
 .show-name p {
   margin-bottom: 20px;
 }
+
+.show-comment {
+  padding: 30px;
+}
+
+.show-comment .btn {
+  background-color: #e67457;
+  border: 0;
+  color: #fff;
+}
+
+.show-comment .btn:hover {
+  background-color: #1ed891;
+  cursor: pointer;
+  -webkit-transition: all .3s ease-out;
+  -moz-transition: all .3s ease-out;
+  -o-transition: all .3s ease-out;
+  transition: all .3s ease-out;
+
+  /** 想要做出 推 bar 效果 QQ  **/
+  
+}
+
+
 
 /********** color of pagination **************/
 

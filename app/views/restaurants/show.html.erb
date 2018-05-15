@@ -33,6 +33,22 @@
             <%= @restaurant.description %><br><br>
           </div>
         </div>
+
+        <hr>
+        
+        <!-- Comment Section -->
+        <div class="show-comment">
+          <%= form_for [@restaurant, @comment] do |f| %>
+            <div class="form-group">
+              <%= f.text_area :content, placeholder: "Leave your comments?", class: "form-control" %>
+            </div>
+            <div class="form-group">
+              <%= f.submit class: "btn" %>
+              <%= f.button "Cancel", type: :reset, class: "btn" %>
+            </div>
+          <% end %>
+        </div>
+
       </div>
       <hr>
       <nav aria-label="...">
