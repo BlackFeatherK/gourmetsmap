@@ -7,7 +7,8 @@ class CommentsController < ApplicationController
     if @comment.save
       redirect_to restaurant_path(@restaurant)
     else
-      redirect_to restaurant_path(@restaurant)
+      flash[:alert] = "Comments can't be blank!"
+      redirect_back(fallback_location: request.referrer)
     end
   end
 

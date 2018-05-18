@@ -4,16 +4,12 @@ body {
 
 .navbar {
   background-color: #bb5500;
-  position:fixed;
+  margin-bottom: 0;
   padding: 10px 0;
   width: 100%;
   left: 0;
   right: 0;
-  z-index: 100;
-}
-
-.container {
-  padding-top: 80px;
+  z-index: 20;
 }
 
 .navbar-default .navbar-text {
@@ -30,10 +26,13 @@ body {
 }
 
 .alert {
+  margin-bottom: 0;
   text-align: center;
-  margin-bottom: 0px;
 }
 
+.notice {
+  margin-bottom: 0;
+}
 
 /********* Full background image setting ********/
 
@@ -57,6 +56,14 @@ body {
   min-height: 50%;
 }
 
+.overlay-a {
+  background: rgba(255,255,255,0.6);
+  overflow: auto;
+  top:0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
 
 .overlay {
   background: rgba(255,255,255,0.6);
@@ -65,17 +72,6 @@ body {
   margin-bottom: 40px;
 }
 
-.overlay-a {
-  background: rgba(255,255,255,0.6);
-  overflow:auto;
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  min-width: 500px;
-  min-height: 200px;
-}
 .overlay-bb {
   background: rgba(0,0,0,0.6);
   width: 70%;
@@ -223,6 +219,7 @@ body {
 
 .nav-pills-center {
   text-align: center;
+  margin-top: 20px;
 }  
 
 .nav-pills-center > li {
