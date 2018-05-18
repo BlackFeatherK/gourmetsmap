@@ -5,7 +5,7 @@ class CommentsController < ApplicationController
     @comment = @restaurant.comments.build(comment_params)
     @comment.user = current_user
     @comment.save!
-    redirect_to restaurant_path(@restaurant)
+      redirect_to restaurant_path(@restaurant)
   end
 
 
