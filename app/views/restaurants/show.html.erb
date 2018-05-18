@@ -4,9 +4,9 @@
     <div class="col-md-12">
       <nav aria-label="...">
         <ul class="pager">
-          <li><a href="#">Previous</a></li>
+          <li><%= link_to "Prev", restaurant_path(@restaurant.prev) if @restaurant.prev %></li>
           <li><%= link_to '✪ Index', restaurants_path %></li>
-          <li><a href="#">Next</a></li>
+          <li><%= link_to 'Next', restaurant_path(@restaurant.next) if @restaurant.next %></li>
         </ul>
       </nav>
       <hr>
@@ -66,8 +66,8 @@
       <hr>
       <nav aria-label="...">
           <ul class="pager">
-            <li class="previous disabled"><a href="#"><span aria-hidden="true">&larr;</span> Older</a></li>
-            <li class="next"><a href="#">Newer <span aria-hidden="true">&rarr;</span></a></li>
+            <li><%= link_to "← Older", restaurant_path(@restaurant.prev) if @restaurant.prev %></li>
+            <li><%= link_to 'Newer →', restaurant_path(@restaurant.next), class: "pager-newer" if @restaurant.next  %></li>
           </ul>
       </nav>
       <br><br>

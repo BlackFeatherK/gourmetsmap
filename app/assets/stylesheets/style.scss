@@ -153,10 +153,13 @@ body {
   background-color: #FFFAFA;
   padding: 10px;
   margin: 15px 30px;
+  border-radius: 8px;
   font-family: 'Belleza', sans-serif;
 }
 
-
+.pager-newer {
+  float: right;
+}
 
 /********** color of pagination **************/
 
