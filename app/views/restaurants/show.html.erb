@@ -28,11 +28,7 @@
           Address: <%= @restaurant.address%><br>
           --------------------------------------</p>
           <p class="word-wt"><strong>Restaurant Photo:</strong></p>
-          <% for img_id in 0..20 %>
-            <% if image_path(@restaurant.image).include?('/'+img_id.to_s+'.jpg') %>
-              <%= image_tag('/seed-img/'+img_id.to_s+'.jpg', width: '400px') %>
-            <% end %>  
-          <% end %>
+          <%= image_tag @restaurant.image, width: '400px' %><br>
           <p class="word-wt"><br>------------------------------------------------</p>
           <div class= "word-wt show-block-des">
             <%= @restaurant.description %><br><br>
