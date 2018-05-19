@@ -53,7 +53,7 @@
 
         <% @restaurant.comments.each do |comment| %>
         <div class="comment-block">
-          <h4><%= comment.user.email.split('@').first %></h4>
+          <h4><%= comment.user.email.split('@').first.capitalize %></h4>
           <p><%= simple_format comment.content %></p>
           <p class="text-muted">
             <em><%= time_ago_in_words(comment.created_at) %> ago -</em>
