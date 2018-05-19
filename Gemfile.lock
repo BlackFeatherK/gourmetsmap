@@ -82,8 +82,6 @@ GEM
     execjs (2.7.0)
     ffaker (2.8.1)
     ffi (1.9.23)
-    filestack-rails (2.2.0)
-      rails (>= 3.2)
     font-awesome-sass (5.0.9)
       sass (>= 3.2)
     globalid (0.4.1)
@@ -229,7 +227,6 @@ DEPENDENCIES
   coffee-rails (~> 4.2)
   devise
   ffaker
-  filestack-rails
   font-awesome-sass (~> 5.0.9)
   jbuilder (~> 2.5)
   jquery-rails
