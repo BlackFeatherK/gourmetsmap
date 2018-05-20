@@ -18,21 +18,45 @@
             <h2 class="word-wt"><%= @restaurant.name %></h2>
             <p class="label label-default"><%= @restaurant.category.name %></p>
           </div>
-          <div>
-            <%= link_to 'Edit', edit_admin_restaurant_path(@restaurant), class: "btn btn-warning btn-xs" %>
-                  <%= link_to 'Delete', admin_restaurant_path(@restaurant), class: "btn btn-danger btn-xs", method: :delete, data: {confirm: "Are you sure?"} %>
-          </div>
-          <p class="word-wt">--------------------------------------</br>
+          
+          <p class="word-wt">--------------------------------------<br><br>
           Opening Hour: <%= @restaurant.opening_hour %><br>
           Tel: <%= @restaurant.tel%><br>
-          Address: <%= @restaurant.address%><br>
+          Address: <%= @restaurant.address%><br><br>
           --------------------------------------</p>
+          
+          <!-- Button trigger modal -->
+          <button type="button" class="btn btn-custom" data-toggle="modal" data-target="#exampleModalCenter">
+            Dashboard
+          </button>
+
+          <!-- Modal -->
+          <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h1 class="modal-title" id="exampleModalLongTitle"><%= @restaurant.name %>'s Dashboard</h1>
+                </div>
+                <div class="modal-body">
+                  <h4>有 <%= @restaurant.comments.count %> 筆評論</h4>
+                  <h4>這家餐廳的平均價位為 $XXX</h4>
+                  <h4>有 XX 人收藏這家餐廳</h4>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <br>
           <p class="word-wt"><strong>Restaurant Photo:</strong></p>
           <%= image_tag @restaurant.image, width: '400px' %><br>
           <p class="word-wt"><br>------------------------------------------------</p>
           <div class= "word-wt show-block-des">
             <%= @restaurant.description %><br><br>
           </div>
+
         </div>
 
         <hr>

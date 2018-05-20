@@ -271,3 +271,22 @@ body {
   font-weight: 900;
 }
 
+/*********** Dashboard related **********/
+
+.btn-custom {
+  background-color: #00f3fffa;
+  color: #fff;
+  cursor: pointer;
+  margin: 15px 0;
+}
+
+.show-block .btn:hover {
+  cursor: pointer;
+  color: #fff;
+}
+
+.show-block .btn:active, btn:visited {
+  color: #fff;
+  transform: translateY(1px);
+}
+
