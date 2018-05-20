@@ -54,12 +54,16 @@
 
 
         <div class="clearfix"></div>
-        <br>
-
-
+        
       </div>
-      
+      <br>
 
+    </div>
+      <!-- commented_restaurants -->
+    <div>
+      <% @commented_restaurants.each do |restaurant| %>
+        <h5><%= restaurant.name %></h5>
+      <% end %>
     </div>
   </div>
 </div>
