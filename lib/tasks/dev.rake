@@ -21,7 +21,9 @@ namespace :dev do
       user_name = FFaker::Name.first_name
       User.create!(
         email: "#{user_name}@ccc.com",
-        password: "12345678"
+        password: "12345678",
+        intro: FFaker::Lorem.sentence,
+        avatar: File.open(Rails.root.join("public/avatar-p/#{rand(0..8)}.jpg"))
       )
     end
     puts "Have created fake users."
