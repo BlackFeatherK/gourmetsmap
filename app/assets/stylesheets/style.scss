@@ -233,10 +233,6 @@ body {
 
 /**************** User related *****************/
 
-.white-title {
-  color: #fff;
-}
-
 .edit-user img {
   width:50px;
   margin: 10px;
@@ -263,3 +259,15 @@ body {
 .panel a:hover .user-rest {
   background-color: #FFE4E1;
 }
+
+/*********** Feeds page *************/
+
+.feeds-box {
+  margin: 10px 0;
+  padding: 0 40px;
+}
+
+.feeds-box h3 {
+  font-weight: 900;
+}
+

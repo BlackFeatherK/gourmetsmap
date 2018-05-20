@@ -1,0 +1,28 @@
+<div class="container overlay-a">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="col-md-6 feeds-box">
+        <h3>New Pins</h3>
+        <hr style= "border:2px solid #ed6d72">
+        <% @recent_restaurants.each do |restaurant| %>
+          <h3><%= link_to restaurant.name, restaurant_path(restaurant) %></h3>
+          <p><span class="badge badge-default"><%= restaurant.category.name %></span></p>
+          <p><%= restaurant.description %></p>
+          <em>﹤<%= time_ago_in_words(restaurant.created_at) %> ago﹥</em>
+          <hr style="border:1px solid #666666">
+        <% end %>
+      </div>
+
+      <div class="col-md-6 feeds-box">
+        <h3>New Comments</h3>
+        <hr style="border:2px solid #ed6d72">
+        <% @recent_comments.each do |comment| %>
+          <h3><%= link_to comment.restaurant.name, restaurant_path(comment.restaurant) %></h3>
+          <p><%= comment.content %></p>
+          <i>by <%= link_to comment.user.name, user_path(comment.user) %></i>
+          <hr style="border:1px solid #666666">
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
