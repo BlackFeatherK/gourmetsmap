@@ -54,16 +54,30 @@
 
 
         <div class="clearfix"></div>
-        
-      </div>
-      <br>
+        <br>
 
-    </div>
+      </div>
+
       <!-- commented_restaurants -->
-    <div>
-      <% @commented_restaurants.each do |restaurant| %>
-        <h5><%= restaurant.name %></h5>
-      <% end %>
+      <div class="col-md-10">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title"><strong><%= @commented_restaurants.count %></strong> 筆已評論餐廳</h3>
+          </div>
+          <div class="panel-body panel-body-noline">
+            <% @commented_restaurants.each do |restaurant| %>
+              <%= link_to restaurant_path(restaurant) do %>
+              <div class="user-rest">
+                <div><%= image_tag restaurant.image, class: "img-responsive img-rounded" %></div>
+                <h5><%= restaurant.name %></h5>
+              </div>
+              <% end %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+      
     </div>
+    
   </div>
 </div>
