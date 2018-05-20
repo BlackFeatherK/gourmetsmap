@@ -17,6 +17,9 @@ namespace :dev do
   end
 
   task fake_user: :environment do
+    User.all.each do |user|
+      user.destroy unless user.admin?
+    end
     20.times do |i|
       user_name = FFaker::Name.first_name
       User.create!(
