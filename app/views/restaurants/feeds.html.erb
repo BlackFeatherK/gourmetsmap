@@ -7,7 +7,7 @@
         <% @recent_restaurants.each do |restaurant| %>
           <h3><%= link_to restaurant.name, restaurant_path(restaurant) %></h3>
           <p><span class="badge badge-default"><%= restaurant.category.name %></span></p>
-          <p><%= restaurant.description %></p>
+          <p><strong><%= restaurant.description %></strong></p>
           <em>﹤<%= time_ago_in_words(restaurant.created_at) %> ago﹥</em>
           <hr style="border:1px solid #666666">
         <% end %>
@@ -18,7 +18,7 @@
         <hr style="border:2px solid #ed6d72">
         <% @recent_comments.each do |comment| %>
           <h3><%= link_to comment.restaurant.name, restaurant_path(comment.restaurant) %></h3>
-          <p><%= comment.content %></p>
+          <p><strong><%= comment.content %></strong></p>
           <i>by <%= link_to comment.user.name, user_path(comment.user) %></i>
           <hr style="border:1px solid #666666">
         <% end %>
