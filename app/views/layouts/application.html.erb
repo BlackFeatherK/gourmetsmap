@@ -42,9 +42,13 @@
               <% end %>
 
               <!-- 以下靠右 icons -->
+              <li>
+                <%= link_to user_path(current_user), title: "View Profile" do %>
+                <i class="fa fa-user-circle fa-lg"></i>Hi, <%=  current_user.name %>
+                <% end %>
+              </li>
 
-              <li><p class= "navbar-text"><i class="fa fa-user-circle fa-lg"></i> Hi, <%=  current_user.email %></p></li>
-              <li><%= link_to 'Profile', user_path(current_user) %></li>
+              <li><%= link_to 'News Feeds', feeds_restaurants_path %></li>
               <li>
                 <%= link_to destroy_user_session_path, title: "Sign out", method: :delete do %>
                 <%= icon('fa', 'sign-out-alt', class: 'fa-lg') %>
