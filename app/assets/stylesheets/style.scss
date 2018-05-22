@@ -295,11 +295,15 @@ body {
 .favorite_like {
   background-color: #fff;
   border: 2px dashed #000;
-  padding: 5px 8px;
+  padding: 3px 6px;
   margin: 0px auto;
-  width: 110px;
+  width: 105px;
 }
 
 .fa-heart {
   color: #ff0000;
+}
+
+.right {
+  float: right;
 }
