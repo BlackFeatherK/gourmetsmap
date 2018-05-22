@@ -81,7 +81,7 @@
         </div>
         <!---------- Show Comments Section --------->
 
-        <% @restaurant.comments.each do |comment| %>
+        <% @comments.each do |comment| %>
         <div class="comment-block">
           <h4><%= comment.user.name %></h4>
           <p><%= simple_format comment.content %></p>
