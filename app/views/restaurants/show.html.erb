@@ -53,6 +53,22 @@
           <p class="word-wt"><strong>Restaurant Photo:</strong></p>
           <%= image_tag @restaurant.image, width: '400px' %><br>
           <p class="word-wt"><br>------------------------------------------------</p>
+          
+         
+          <div class="favorite_like">
+            <div class="favor_btn">
+              <%= link_to favorite_restaurant_path(@restaurant), method: :post do %>
+                <i class="fas fa-heart fa-2x"></i>
+              <% end %>
+              <%= link_to unfavorite_restaurant_path(@restaurant), method: :post do %>
+                <i class="far fa-heart fa-2x"></i>
+              <% end %>
+            </div>
+          </div>
+          
+
+
+
           <div class= "word-wt show-block-des">
             <%= @restaurant.description %><br><br>
           </div>
