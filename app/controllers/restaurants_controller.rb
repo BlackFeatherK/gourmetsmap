@@ -1,6 +1,8 @@
 class RestaurantsController < ApplicationController
   
 
+
+
   def index
     @restaurants = Restaurant.order(:created_at).page(params[:page]).per(9)
     @categories = Category.all
@@ -34,5 +36,17 @@ class RestaurantsController < ApplicationController
     redirect_back(fallback_location: root_path)
   end
 
+  def like
+    @restaurant = Restaurant.find(params[:id])
+    current_user.likes.create(restaurant: @restaurant)
+    redirect_back(fallback_location: root_path)
+  end
+
+  def unlike
+    @restaurant = Restaurant.find(params[:id])
+    likes = Like.where(restaurant: @restaurant, user: current_user)
+    likes.destroy_all
+    redirect_back(fallback_location: root_path)
+  end
 
 end

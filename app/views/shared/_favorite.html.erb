@@ -1,5 +1,5 @@
 
-<div class="favor_btn">
+<div class="favor-btn">
   <% if restaurant.is_favorited?(current_user) %>
     <%= link_to unfavorite_restaurant_path(restaurant), method: :post do %>
       <i class="fas fa-heart fa-lg"></i>
@@ -7,6 +7,18 @@
   <% else %>
     <%= link_to favorite_restaurant_path(restaurant), method: :post do %>
       <i class="far fa-heart fa-lg"></i>
+    <% end %>
+  <% end %>
+</div>
+
+<div class="favor-btn">
+  <% if restaurant.is_liked?(current_user) %>
+    <%= link_to unlike_restaurant_path(restaurant), method: :post do %>
+      <i class="fas fa-thumbs-up fa-lg"></i>
+    <% end %>
+  <% else %>
+    <%= link_to like_restaurant_path(restaurant), method: :post do %>
+      <i class="far fa-thumbs-up fa-lg"></i>
     <% end %>
   <% end %>
 </div>
