@@ -11,6 +11,8 @@ Rails.application.routes.draw do
       get :dashboard
       post :favorite
       post :unfavorite
+      post :like
+      post :unlike
     end
 
     resources :comments, only: [:create, :destroy]
