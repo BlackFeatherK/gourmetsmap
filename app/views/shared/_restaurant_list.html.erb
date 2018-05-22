@@ -3,7 +3,10 @@
     <div class="restaurant-item">
       <%= image_tag restaurant.image, class: "img-responsive center-block" %>
       <div class="caption">
-        <div class="right"><%= render partial: "shared/favorite", locals: {restaurant: restaurant} %></div>
+        <div class="right">
+          <%= render partial: "shared/favorite", locals: {restaurant: restaurant} %>
+          <%= render partial: "shared/like", locals: {restaurant: restaurant} %> 
+          </div>
         <h3><%= link_to restaurant.name, restaurant_path(restaurant) %></h3>
         <p class="label label-default"><%= restaurant.category.name %></p>
         <p><%= truncate(restaurant.description, length: 80) %></p>
