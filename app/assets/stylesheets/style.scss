@@ -72,6 +72,12 @@ body {
   margin-bottom: 40px;
 }
 
+.overlay-r {
+  background: rgba(255,255,255,0.6);
+  height: 100%;
+  margin-bottom: 40px;
+}
+
 .overlay-bb {
   background: rgba(0,0,0,0.6);
   width: 70%;
@@ -319,4 +325,17 @@ body {
 .font-shadow {
   color: white;
   text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;
+}
+
+.ranking-box {
+  margin: 0x 15px;
+  padding: 20px 0px;
+  height: 200px;
+
+}
+
+.ranking-box img { 
+  max-width:160px; 
+  myimg:expression(onload=function(){ 
+  this.style.width=(this.offsetWidth > 600)?"600px":"auto"})
 }

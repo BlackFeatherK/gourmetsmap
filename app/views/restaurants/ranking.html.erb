@@ -1,16 +1,32 @@
 <div class="container">
   <div class="row">
+    <div class="col-md-10 col-md-offset-1 font-shadow page-header">
+      <h1>Top 10 Most Favorited</h1>
+    </div>
+    <div class="clearfix"></div>
+    <div class="col-md-10 col-md-offset-1">
 
-    <h1 class="font-shadow">Top 10 Most Favorited</h1>
+      <% @restaurants.each do |restaurant| %>
+        <div class="ranking-box overlay-r">
+          <div class="col-md-3 col-xs-3">
+            <%= link_to restaurant_path(restaurant) do %>
+              <%= image_tag restaurant.image, class: "img-responsive center-block" %>
+            <% end %>
+          </div>
 
-    <% @restaurants.each do |restaurant| %>
-      <%= image_tag restaurant.image %>
-      <h4><%= restaurant.name %></h4>
-      
-      <p><%= truncate(restaurant.description, length: 200) %></p>
-      <%= link_to 'Show', restaurant_path(restaurant), class: "btn btn-primary" %>
-      <%= render partial: 'shared/favorite', locals: { restaurant: restaurant } %>
-    <% end %>
+          <div class="col-md-9 col-xs-9 overlay">
+            <h4>
+              <%= restaurant.name %>
+              <span><%= render partial: 'shared/favorite', locals: { restaurant: restaurant } %></span>
+              </h4>
+              <p><%= truncate(restaurant.description, length: 200) %></p>
+              <%= link_to 'Show', restaurant_path(restaurant), class: "btn btn-primary" %>
+          </div>
+
+        </div>
+
+      <% end %>
+    </div>
   </div>
 </div>
 
