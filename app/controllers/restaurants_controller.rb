@@ -30,7 +30,9 @@ class RestaurantsController < ApplicationController
   def unfavorite
     favorites = Favorite.where(restaurant: @restaurant, user: current_user)
     favorites.destroy_all
+    @restaurant.count_favor
     redirect_back(fallback_location: root_path)
+
   end
 
   def like
@@ -41,7 +43,6 @@ class RestaurantsController < ApplicationController
   def unlike
     likes = Like.where(restaurant: @restaurant, user: current_user)
     likes.destroy_all
-    @restaurant.count_favor
     redirect_back(fallback_location: root_path)
   end
 
