@@ -50,6 +50,8 @@ class RestaurantsController < ApplicationController
     @restaurants = Restaurant.order(favor_count: :desc).limit(10)
   end
 
+  
+
   private
 
   def set_restaurant
