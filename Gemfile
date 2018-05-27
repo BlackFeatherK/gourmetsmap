@@ -40,6 +40,8 @@ gem 'ffaker'
 gem 'kaminari'
 gem 'jquery-rails'
 gem 'font-awesome-sass', '~> 5.0.9'
+gem 'mini_magick'
+gem 'fog'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
