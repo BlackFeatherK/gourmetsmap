@@ -36,7 +36,7 @@ class RestaurantsController < ApplicationController
   end
 
   def like
-    Like.create(restaurant: @restaurant, user: current_user)
+    current_user.likes.create(restaurant: @restaurant)
     redirect_back(fallback_location: root_path)
   end
 
