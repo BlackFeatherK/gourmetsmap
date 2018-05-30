@@ -25,6 +25,17 @@ body {
   font-size: 25px;
 }
 
+.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
+  background-color: #bb5500;
+  color: #fff;
+}
+
+.dropdown-font > li > a {
+  padding: 10px 20px;
+  font-weight: 900;
+  color: #f13699;
+}
+
 .alert {
   margin-bottom: 0;
   text-align: center;

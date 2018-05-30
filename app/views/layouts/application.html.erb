@@ -31,35 +31,41 @@
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
             <ul class="pull-right text-right nav navbar-nav">
+          <!-- 以下靠右 icons -->
             <% if current_user %>
-
-              <% if current_user.admin? %>
-                <li>
-                  <%= link_to admin_restaurants_path, title: "Console Room" do %>
-                    <i class="fa fa-list-alt fa-lg" aria-hidden="true"></i>
-                  <% end %>
-                </li>
-              <% end %>
-
-              <!-- 以下靠右 icons -->
-              <li>
-                <%= link_to user_path(current_user), title: "View Profile" do %>
-                <i class="fa fa-user-circle fa-lg"></i>Hi, <%=  current_user.name %>
-                <% end %>
-              </li>
-
+              
               <li><%= link_to 'News Feeds', feeds_restaurants_path %></li>
               <li><%= link_to 'Top 10!', ranking_restaurants_path %></li>
-              <li>
-                <%= link_to destroy_user_session_path, title: "Sign out", method: :delete do %>
-                <%= icon('fa', 'sign-out-alt', class: 'fa-lg') %>
-                <% end %>
+              <li><%= link_to 'Gourmets Online', users_path %></li>
+
+              <li class="dropdown">
+                <a class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <i class="fa fa-user-circle fa-lg"></i>
+                  Hi, <%=  current_user.name %>
+                  <span class="caret"></span>
+                </a>
+
+                <ul class="dropdown-menu dropdown-font" aria-labelledby="dropdownMenuLink">
+
+                  <li><%= link_to 'Profile', user_path(current_user), class: "dropdown-item" %></li>
+                  <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete, class: "dropdown-item" %></li>
+                  <li><%= link_to 'Front Desk', root_path %></li>
+
+                  <% if current_user.admin? %>
+                  <li>
+                    <%= link_to 'Console Room', admin_restaurants_path, class: "dropdown-item" %>
+                  </li>
+                  <% end %>
+
+                </ul>
               </li>
+
               <li>
                 <%= link_to edit_user_registration_path, title: "Change Password" do %>
                 <%= icon('fas', 'cog', class: 'fa-lg') %>
                 <% end %>
               </li>
+
             <% else %>
               <li>
                 <%= link_to new_user_registration_path, title: "Register!" do %>
