@@ -1,10 +1,22 @@
-<ul>
+<div class="container">
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1 font-shadow page-header">
+      <h1>Gourmets Online</h1>
+    </div>
 
-  <% @users.each do |user| %>
-    <li>
-      <%= user.name %>
-      <%= render partial: "shared/follow", locals: {user: user} %>
-    </li>
-  <% end %>
+    <div class="col-md-offset-1">
+      <% @users.each do |user| %>
+        <div class="col-md-8 col-md-6 user-card">
 
-</ul>
+          <%= image_tag user.avatar, width: "100%" %>
+          <div class="user-follow">
+            <h4><%= user.name %></h4>
+            <p><%= render partial: "shared/follow", locals: {user: user} %></p>
+          </div>
+          
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+

@@ -266,6 +266,25 @@ body {
   background-color: #FFE4E1;
 }
 
+.user-card {
+  background-color: #fff;
+  width: 250px;
+  height: 350px;
+  border-radius: 40%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  text-align: center;
+  margin: 25px 40px;
+}
+
+.user-card img {
+  border-radius: 50%;
+  margin-top: 20px;
+}
+
+.user-follow {
+  padding: 20px;
+}
+
 /*********** Feeds page *************/
 
 .feeds-box {
