@@ -1,0 +1,72 @@
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <strong><%= link_to "Gourmets' Map", root_path, class: "navbar-brand" %></strong>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+      <ul class="pull-right text-right nav navbar-nav">
+    <!-- 以下靠右 icons -->
+      <% if current_user %>
+        
+        <li><%= link_to 'News Feeds', feeds_restaurants_path %></li>
+        <li><%= link_to 'Top 10!', ranking_restaurants_path %></li>
+        <li><%= link_to 'Gourmets Online', users_path %></li>
+
+        <li class="dropdown">
+          <a class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fa fa-user-circle fa-lg"></i>
+            Hi, <%=  current_user.name %>
+            <span class="caret"></span>
+          </a>
+
+          <ul class="dropdown-menu dropdown-font" aria-labelledby="dropdownMenuLink">
+
+            <li><%= link_to 'Profile', user_path(current_user), class: "dropdown-item" %></li>
+            <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete, class: "dropdown-item" %></li>
+            <li><%= link_to 'Front Desk', root_path %></li>
+
+            <% if current_user.admin? %>
+            <li>
+              <%= link_to 'Console Room', admin_restaurants_path, class: "dropdown-item" %>
+            </li>
+            <% end %>
+
+          </ul>
+        </li>
+
+        <li>
+          <%= link_to edit_user_registration_path, title: "Change Password" do %>
+          <%= icon('fas', 'cog', class: 'fa-lg') %>
+          <% end %>
+        </li>
+
+      <% else %>
+        <li>
+          <%= link_to new_user_registration_path, title: "Register!" do %>
+          <i class="fas fa-registered fa-lg"></i>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to new_user_session_path, title: "Log in!" do %>
+          <i class="fas fa-sign-in-alt fa-lg"></i>
+        <% end %>
+        </li>
+
+
+      <% end %>        
+      </ul>
+
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+
+</nav>
