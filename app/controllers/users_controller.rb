@@ -12,7 +12,11 @@ class UsersController < ApplicationController
       unless @user==current_user
         redirect_to user_path(@user)
       end
-    end   
+    end
+
+    @favorited_restaurants = @user.favorited_restaurants
+    @followings = @user.followings
+    @followers = @user.followers
   end
  
 
