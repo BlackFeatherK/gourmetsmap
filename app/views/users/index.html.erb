@@ -7,12 +7,13 @@
     <div class="col-md-offset-1">
       <% @users.each do |user| %>
         <div class="col-md-8 col-md-6 user-card">
-
-          <%= image_tag user.avatar, width: "100%" %>
-          <div class="user-follow">
-            <h4><%= user.name %></h4>
-            <p><%= render partial: "shared/follow", locals: {user: user} %></p>
-          </div>
+          <%= link_to user_path(user) do %>
+            <%= image_tag user.avatar, width: "100%" %>
+            <div class="user-follow">
+              <h4><%= user.name %></h4>
+          <% end %>
+              <p><%= render partial: "shared/follow", locals: {user: user} %></p>
+            </div>
           
         </div>
       <% end %>
