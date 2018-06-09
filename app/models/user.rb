@@ -40,4 +40,9 @@ class User < ApplicationRecord
     self.followings.include?(user)    
   end
 
+  def all_friends
+    friends = self.friends + self.adding_mes
+    return friends.uniq
+  end
+
 end
