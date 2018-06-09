@@ -31,41 +31,44 @@
 
 
           <!-- Modal -->
+         
           <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-              <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h2 class="modal-title" id="exampleModalLabel">Edit Title</h2>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                      <span aria-hidden="true">&times;</span>
-                    </button>
-                  </div>
-                  <div class="modal-body">
-                    <%= form_for @user do |f| %>
-                      <div class="form-group">
-                        <%= f.label :name, "Name" %>
-                        <%= f.text_field :name, class: "form-control" %>
-                      </div>
-                      <div class="form-group">
-                        <%= f.label :intro, "About Me" %>
-                        <%= f.text_area :intro, class: "form-control" %>
-                      </div>
-                      <div class="form-group edit-user">
-                        <%= f.label :avatar, "Upload Your Photo" %>
-                        <%= image_tag @user.avatar if @user.avatar? %>
-                        <%= f.file_field :avatar %>
-                      </div>
-                      <div class="form-group">
-                        <%= f.submit "Update", class: "btn btn-primary" %>
-                        <%= link_to "Cancel", user_path(@user), class: "btn btn-success" %>
-                      </div>
-                    <% end %>
-                  </div>
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h2 class="modal-title" id="exampleModalLabel">Edit Title</h2>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <%= form_for @user do |f| %>
+                    <div class="form-group">
+                      <%= f.label :name, "Name" %>
+                      <%= f.text_field :name, class: "form-control" %>
+                    </div>
+                    <div class="form-group">
+                      <%= f.label :intro, "About Me" %>
+                      <%= f.text_area :intro, class: "form-control" %>
+                    </div>
+                    <div class="form-group edit-user">
+                      <%= f.label :avatar, "Upload Your Photo" %>
+                      <%= image_tag @user.avatar if @user.avatar? %>
+                      <%= f.file_field :avatar %>
+                    </div>
+                    <div class="form-group">
+                      <%= f.submit "Update", class: "btn btn-primary" %>
+                      <%= link_to "Cancel", user_path(@user), class: "btn btn-success" %>
+                    </div>
+                  <% end %>
                 </div>
               </div>
             </div>
           </div>
         </div>
+
+      </div>
+
 
 
         <div class="clearfix"></div>
@@ -73,86 +76,85 @@
 
       
       
-        <div class="col-md-12">
-          <div class="col-md-4">
-            <!-- follwings清單，用 panel 包一個 list-group -->
-            <div class="panel panel-default">
-              <div class="panel-heading">
-                <h3 class="panel-title">目前 follow 了 <strong><%= @followings.count %></strong> 個人</h3>
-              </div>
-
-              <ul class="list-group">
-                <% @followings.each do |following| %>
-                <li class="list-group-item">
-                  <%= link_to user_path(following) do %>
-                    <%= image_tag(following.avatar, height: 30, width: 30, class: "img-circle") %>
-                    <%= following.name %>
-                  <% end %>
-                </li>
-                <% end %>
-              </ul>
-            </div>
-
-            <!--followers清單，用 panel 包一個 list-group -->
-            <div class="panel panel-default">
-              <div class="panel-heading">
-                <h3 class="panel-title"><strong><%= @followers.count %> 人在 follow "<%= @user.name %>"</strong></h3>
-              </div>
+      <div class="col-md-12">
+        <div class="col-md-4">
+          <!-- follwings清單，用 panel 包一個 list-group -->
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h3 class="panel-title">目前 follow 了 <strong><%= @followings.count %></strong> 個人</h3>
             </div>
 
             <ul class="list-group">
-              <% @followers.each do |follower| %>
+              <% @followings.each do |following| %>
               <li class="list-group-item">
-                <%= link_to user_path(follower) do %>
-                <%= image_tag(follower.avatar, height: 30, width: 30, class: "img-circle") %>
-                <%= follower.name %>
+                <%= link_to user_path(following) do %>
+                  <%= image_tag(following.avatar, height: 30, width: 30, class: "img-circle") %>
+                  <%= following.name %>
                 <% end %>
               </li>
               <% end %>
             </ul>
-
           </div>
+
+          <!--followers清單，用 panel 包一個 list-group -->
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h3 class="panel-title"><strong><%= @followers.count %> 人在 follow "<%= @user.name %>"</strong></h3>
+            </div>
+          </div>
+
+          <ul class="list-group">
+            <% @followers.each do |follower| %>
+            <li class="list-group-item">
+              <%= link_to user_path(follower) do %>
+              <%= image_tag(follower.avatar, height: 30, width: 30, class: "img-circle") %>
+              <%= follower.name %>
+              <% end %>
+            </li>
+            <% end %>
+          </ul>
+
+        </div>
+      
+
+
+
+
         
+        <div class="col-md-8">
+          <!-- commented_restaurants -->
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h3 class="panel-title"><strong><%= @commented_restaurants.count %></strong> 筆已評論餐廳</h3>
+            </div>
 
+            <div class="panel-body panel-body-noline">
+              <% @commented_restaurants.each do |restaurant| %>
+                <%= link_to restaurant_path(restaurant) do %>
+                <div class="user-rest">
+                  <div><%= image_tag restaurant.image, class: "img-responsive img-rounded" %></div>
+                  <h5><%= restaurant.name %></h5>
+                </div>
+                <% end %>
+              <% end %>
+            </div>
+          </div>
 
+          <!--favoraited_restaurants, 用 panel: list-group > list-group-item 包 -->
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h3 class="panel-title"><strong><%= @favorited_restaurants.count %> 家收藏餐廳</strong></h3>
+            </div>
 
-
-          
-          <div class="col-md-8">
-            <!-- commented_restaurants -->
-            <div class="panel panel-default">
-              <div class="panel-heading">
-                <h3 class="panel-title"><strong><%= @commented_restaurants.count %></strong> 筆已評論餐廳</h3>
-              </div>
-
-              <div class="panel-body panel-body-noline">
-                <% @commented_restaurants.each do |restaurant| %>
-                  <%= link_to restaurant_path(restaurant) do %>
+            <div class="panel-body panel-body-noline">
+              <% @favorited_restaurants.each do |restaurant| %>
+                <%= link_to restaurant_path(restaurant) do %>
                   <div class="user-rest">
                     <div><%= image_tag restaurant.image, class: "img-responsive img-rounded" %></div>
                     <h5><%= restaurant.name %></h5>
-                  </div>
-                  <% end %>
+                  </div>  
                 <% end %>
-              </div>
-            </div>
-
-            <!--favoraited_restaurants, 用 panel: list-group > list-group-item 包 -->
-            <div class="panel panel-default">
-              <div class="panel-heading">
-                <h3 class="panel-title"><strong><%= @favorited_restaurants.count %> 家收藏餐廳</strong></h3>
-              </div>
-
-              <div class="panel-body panel-body-noline">
-                <% @favorited_restaurants.each do |restaurant| %>
-                  <%= link_to restaurant_path(restaurant) do %>
-                    <div class="user-rest">
-                      <div><%= image_tag restaurant.image, class: "img-responsive img-rounded" %></div>
-                      <h5><%= restaurant.name %></h5>
-                    </div>  
-                  <% end %>
-                <% end %>
-              </div>
+              <% end %>
             </div>
           </div>
         </div>
