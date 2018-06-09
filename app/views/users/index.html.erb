@@ -12,12 +12,12 @@
             <div class="user-follow">
               <h4><%= user.name %></h4>
           <% end %>
-              <p><%= render partial: "shared/follow", locals: {user: user} %></p>
               <p>
-              
-
+                <%= render partial: "shared/follow", locals: {user: user} %>
+                <%= link_to '+ Friend', friendships_path(friend_id: user), method: :post %>
 
               </p>
+
             </div>
           
         </div>
