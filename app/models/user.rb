@@ -28,6 +28,9 @@ class User < ApplicationRecord
   has_many :inverse_friendships, class_name: "Friendship", foreign_key: "friend_id"
   has_many :adding_mes, through: :inverse_friendships, source: :user
 
+  def friend?(user)
+    self.friends.include?(user) || self.adding_mes.include?(user)
+  end
 
   def admin?
     self.role == "admin"    
@@ -35,10 +38,6 @@ class User < ApplicationRecord
 
   def following?(user)
     self.followings.include?(user)    
-  end
-
-  def friend?(user)
-    self.friends.include?(user)
   end
 
 end
