@@ -1,9 +1,10 @@
 class FriendshipsController < ApplicationController
   
   def create
-    @friendship = Friendship.create(user_id:current_user.id, friend_id: params[:friend_id])
+    @friendship = current_user.friendships.build(friend_id: params[:friend_id])
+    @inverse_friendships = current_user.inverse_friendships.build(user_id: params[:friend_id])
 
-    if @friendship.save
+    if @friendship.save && @inverse_friendships.save
       flash[:notice] = "Friend +1 ☺ Yehhhhhh~~"
 
       redirect_back(fallback_location: root_path)
@@ -14,8 +15,11 @@ class FriendshipsController < ApplicationController
   end
 
   def destroy
-    @friendship = current_user.inverse_friendships.where(user_id: params[:id]).first || current_user.friendships.where(friend_id: params[:id]).first
+    @friendship = current_user.friendships.find_by(friend_id: params[:id])
+    @inverse_friendships = current_user.inverse_friendships.find_by(user_id: params[:id])
+
     @friendship.destroy
+    @inverse_friendships.destroy
     flash[:alert] = "NOOOOOOO!!!!! Friend -1 ☹"
     redirect_back(fallback_location: root_path)
   end
